@@ -6,7 +6,7 @@ Overview
 
 File Organizer helps reduce the time spent manually sorting files.
 
-The program scans a selected folder, identifies supported file types, creates the appropriate category folders, and moves the files into them automatically.
+The program scans a selected folder, identifies supported file types, automatically creates category folders, and moves the files into the appropriate folders.
 
 Features
 
@@ -15,9 +15,10 @@ Features
 - Automatically creates category folders
 - Handles uppercase and lowercase extensions
 - Skips unsupported file types
-- Prevents duplicate files from being overwritten
+- Prevents existing files from being overwritten
 - Validates the folder path
-- Displays a summary after organization
+- Displays an organization summary
+- Uses only Python's standard library
 
 Supported File Types
 
@@ -29,7 +30,7 @@ Videos| ".mp4", ".mkv"
 
 Example
 
-Before:
+Before
 
 Downloads/
 ├── photo.jpg
@@ -37,7 +38,7 @@ Downloads/
 ├── song.mp3
 └── video.mp4
 
-After:
+After
 
 Downloads/
 ├── Images/
@@ -49,6 +50,18 @@ Downloads/
 └── Videos/
     └── video.mp4
 
+How It Works
+
+1. The user provides the path to a folder.
+2. The program checks that the folder exists.
+3. Files are scanned one by one.
+4. The file extension determines its category.
+5. The required category folder is created automatically.
+6. The file is moved into that category folder.
+7. Unsupported files are left untouched.
+8. Existing files are not overwritten.
+9. A summary is displayed when the process finishes.
+
 Requirements
 
 - Python 3
@@ -56,28 +69,62 @@ Requirements
 
 How to Run
 
-Run the program:
+Run:
 
 python file_organizer.py
 
-Enter the path of the folder you want to organize when prompted.
+The program will ask:
+
+Enter folder path:
+
+Enter the path of the folder you want to organize.
 
 Safety
 
-The program moves files rather than deleting them. However, users should test the tool on a non-critical folder before using it on important files.
+The program moves files rather than deleting them.
 
-Project Purpose
+However, it is recommended to test the program on a non-critical folder before using it with important files.
 
-This project demonstrates practical Python skills including:
+Technologies
 
+- Python
+- "os"
+- "shutil"
+- Git
+- GitHub
+
+Skills Demonstrated
+
+This project demonstrates practical skills in:
+
+- Python programming
 - File-system automation
-- Working with directories and file paths
+- Directory and file management
 - File extension handling
-- Conditional logic
 - Dictionaries
+- Conditional logic
 - Error handling
 - Python standard-library modules
-- Git and GitHub project management
+- Git version control
+- GitHub project management
+
+Project Structure
+
+file-organizer/
+├── file_organizer.py
+├── README.md
+└── .gitignore
+
+Future Improvements
+
+Possible future versions could include:
+
+- More supported file types
+- Custom categories
+- A graphical user interface
+- A preview mode before moving files
+- Logging
+- Configurable organization rules
 
 Author
 
