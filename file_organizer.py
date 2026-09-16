@@ -1,5 +1,6 @@
 import os
 import shutil
+import sys
 
 categories = {
     ".jpg": "Images",
@@ -18,6 +19,8 @@ categories = {
 }
 
 folder = input("Enter folder path: ").strip()
+
+dry_run = "--preview" in sys.argv
 
 if not os.path.isdir(folder):
     print("Error: Folder does not exist.")
@@ -60,10 +63,13 @@ for file in files:
         skipped_count += 1
         continue
 
-    shutil.move(old_path, new_path)
+    if dry_run:
+     print(file, "→", category, "(preview)")
+    else:
+     shutil.move(old_path, new_path)
 
-    print(file, "→", category)
-    moved_count += 1
+     print(file, "→", category)
+     moved_count += 1
 
 print()
 print("Organization complete!")
